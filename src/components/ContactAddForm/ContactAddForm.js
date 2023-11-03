@@ -1,43 +1,48 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
+import {
+  Form,
+  Field,
+  FormField,
+  ErrorMessage,
+  Button,
+} from './ContactAddForm.styled';
 import * as Yup from 'yup';
 
 const contactSchema = Yup.object().shape({
-  name: Yup.string().min(2, 'Too short!').required('Required'),
+  name: Yup.string().min(2, 'Too short!').required('Name is required'),
   number: Yup.number().required('Must be filled'),
 });
 
-export const SearchForm = ({addContact}) => {
+export const ContactAddForm = ({ addContact }) => {
   return (
-    <div>
+    <>
       <Formik
         initialValues={{
           name: '',
           number: '',
         }}
-        
         validationSchema={contactSchema}
-
         onSubmit={(values, actions) => {
           addContact(values);
           actions.resetForm();
         }}
       >
         <Form>
-          <label>
+          <FormField>
             Name:
             <Field name="name" type="text" />
-            <ErrorMessage name="name" />
-          </label>
+            <ErrorMessage name="name" component="span" />
+          </FormField>
 
-          <label>
+          <FormField>
             Number:
             <Field name="number" type="number" />
-            <ErrorMessage name="number" />
-          </label>
+            <ErrorMessage name="number" component="span" />
+          </FormField>
 
-          <button type="submit">Add contact</button>
+          <Button type="submit">Add contact</Button>
         </Form>
       </Formik>
-    </div>
+    </>
   );
 };

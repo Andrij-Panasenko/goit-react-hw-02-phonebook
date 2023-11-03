@@ -1,7 +1,9 @@
+import { GlobalStyle } from './GlobalStyle';
+
 import { nanoid } from 'nanoid';
-// import { Phonebook } from './Phonebook';
 import { Component } from 'react';
-import { SearchForm } from './ContactAddForm/ContactAddForm';
+import { Wrapper } from './Wrapper.styled';
+import { ContactAddForm } from './ContactAddForm/ContactAddForm';
 import { ContactForm } from './ContactForm/ContactForm';
 
 const initialContacts = [
@@ -38,9 +40,9 @@ export class App extends Component {
   deleteContact = contactId => {
     this.setState(prevState => {
       return {
-        contacts: prevState.contacts.filter(item => item.id !== contactId)
-      }
-    })
+        contacts: prevState.contacts.filter(item => item.id !== contactId),
+      };
+    });
   };
 
   updateContactFilter = query => {
@@ -53,19 +55,22 @@ export class App extends Component {
     const { contacts, filter } = this.state;
 
     return (
-      <div className="temp-class">
-        <h1>Phonebook</h1>
-        <SearchForm
-          addContact={this.addContact}
-          deleteContact={this.deleteContact}
-        />
-        <ContactForm
-          contacts={contacts}
-          filter={filter}
-          onContactFilter={this.updateContactFilter}
-          onDeleteContact={this.deleteContact}
-        />
-      </div>
+      <>
+        <GlobalStyle/>
+        <Wrapper className="temp-class">
+          <h1>Phonebook</h1>
+          <ContactAddForm
+            addContact={this.addContact}
+            deleteContact={this.deleteContact}
+          />
+          <ContactForm
+            contacts={contacts}
+            filter={filter}
+            onContactFilter={this.updateContactFilter}
+            onDeleteContact={this.deleteContact}
+          />
+        </Wrapper>
+      </>
     );
   }
 }
