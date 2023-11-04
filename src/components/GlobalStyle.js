@@ -1,10 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
-import 'modern-normalize'
+import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
    body {
-  font-family: DM Sans, sans-serif;
+  font-family: Ubuntu, sans-serif;
 }
+
 button {
   cursor: pointer;
 }

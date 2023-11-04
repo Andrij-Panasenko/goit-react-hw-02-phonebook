@@ -1,4 +1,5 @@
 import { ContactItem } from './ContactItem';
+import { ContactList, Input, Label, Section, Title } from './ContactsForm.styled';
 
 export const ContactForm = ({
   contacts,
@@ -8,28 +9,30 @@ export const ContactForm = ({
 }) => {
   const filteredContacts = contacts.filter(item => {
     const hasContact = item.name.toLowerCase().includes(filter.toLowerCase());
-    
+
     return hasContact;
   });
   return (
-    <div>
-      <h2>Contacts</h2>
-      <p>Find contact by name</p>
-      <input
-        type="text"
-        placeholder="Name"
-        value={filter}
-        onChange={evt => onContactFilter(evt.target.value)}
-      />
+    <Section>
+      <Title>Contacts</Title>
+      <Label>
+        Find contact by name
+        <Input
+          type="text"
+          placeholder="Name"
+          value={filter}
+          onChange={evt => onContactFilter(evt.target.value)}
+        />
+      </Label>
 
-      <ul>
+      <ContactList>
         {filteredContacts.length > 0 && (
           <ContactItem
             contacts={filteredContacts}
             onDeleteContact={onDeleteContact}
           />
         )}
-      </ul>
-    </div>
+      </ContactList>
+    </Section>
   );
 };

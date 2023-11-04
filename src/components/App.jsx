@@ -20,6 +20,15 @@ export class App extends Component {
   };
 
   addContact = newContact => {
+    const hasContact = this.state.contacts.some(
+      contact => contact.name === newContact.name
+    );
+
+    if (hasContact) {
+      alert('A contact with that name already exists ');
+      return
+    };
+
     const contact = {
       ...newContact,
       name: newContact.name,
@@ -58,17 +67,17 @@ export class App extends Component {
       <>
         <GlobalStyle/>
         <Wrapper className="temp-class">
-          <h1>Phonebook</h1>
-          <ContactAddForm
-            addContact={this.addContact}
-            deleteContact={this.deleteContact}
-          />
-          <ContactForm
-            contacts={contacts}
-            filter={filter}
-            onContactFilter={this.updateContactFilter}
-            onDeleteContact={this.deleteContact}
-          />
+            <h1>Phonebook</h1>
+            <ContactAddForm
+              addContact={this.addContact}
+              deleteContact={this.deleteContact}
+            />
+            <ContactForm
+              contacts={contacts}
+              filter={filter}
+              onContactFilter={this.updateContactFilter}
+              onDeleteContact={this.deleteContact}
+            />
         </Wrapper>
       </>
     );

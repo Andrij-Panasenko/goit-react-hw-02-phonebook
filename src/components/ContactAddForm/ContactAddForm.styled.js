@@ -40,4 +40,11 @@ export const Button = styled.button`
   font-weight: 700;
   border: none;
   box-shadow: ${p => p.theme.colors.boxShadow};
+  background-color: ${p => p.theme.colors.orange};
+  transition: ${p => p.theme.tratsition};
+  border-radius: 25px;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;

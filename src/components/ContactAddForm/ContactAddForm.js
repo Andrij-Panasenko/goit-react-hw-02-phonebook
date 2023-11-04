@@ -36,7 +36,7 @@ export const ContactAddForm = ({ addContact }) => {
 
           <FormField>
             Number:
-            <Field name="number" type="number" />
+            <Field name="number" type="tel" />
             <ErrorMessage name="number" component="span" />
           </FormField>
 
