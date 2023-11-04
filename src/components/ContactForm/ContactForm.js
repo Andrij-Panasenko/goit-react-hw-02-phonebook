@@ -1,5 +1,11 @@
 import { ContactItem } from './ContactItem';
-import { ContactList, Input, Label, Section, Title } from './ContactsForm.styled';
+import {
+  ContactList,
+  Input,
+  Label,
+  Section,
+  Title,
+} from './ContactsForm.styled';
 
 export const ContactForm = ({
   contacts,
@@ -26,11 +32,13 @@ export const ContactForm = ({
       </Label>
 
       <ContactList>
-        {filteredContacts.length > 0 && (
+        {filteredContacts.length > 0 ? (
           <ContactItem
             contacts={filteredContacts}
             onDeleteContact={onDeleteContact}
           />
+        ) : (
+          <p>Your contatcs is empty. Please add contact to your list</p>
         )}
       </ContactList>
     </Section>

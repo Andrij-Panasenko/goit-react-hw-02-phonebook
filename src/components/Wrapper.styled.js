@@ -5,4 +5,5 @@ export const Wrapper = styled.div`
   padding: ${p => p.theme.spacing(10)};
   margin: 0 auto;
   background-color: ${p => p.theme.colors.background};
+  border-radius: 25px;
 `;
