@@ -4,7 +4,9 @@ import { nanoid } from 'nanoid';
 import { Component } from 'react';
 import { Wrapper } from './Wrapper.styled';
 import { ContactAddForm } from './ContactAddForm/ContactAddForm';
-import { ContactForm } from './ContactForm/ContactForm';
+import { ContactList } from './ContactList/ContactList';
+import { Title } from './Title/Title';
+import { Filter } from './Filter/Filter';
 
 const initialContacts = [
   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -26,8 +28,8 @@ export class App extends Component {
 
     if (hasContact) {
       alert('A contact with that name already exists ');
-      return
-    };
+      return;
+    }
 
     const contact = {
       ...newContact,
@@ -40,8 +42,6 @@ export class App extends Component {
       console.log(contact);
       return {
         contacts: [...prevState.contacts, contact],
-        name: contact.name,
-        number: contact.number,
       };
     });
   };
@@ -55,6 +55,7 @@ export class App extends Component {
   };
 
   updateContactFilter = query => {
+    console.log(query)
     this.setState({
       filter: query,
     });
@@ -65,19 +66,20 @@ export class App extends Component {
 
     return (
       <>
-        <GlobalStyle/>
+        <GlobalStyle />
         <Wrapper className="temp-class">
-            <h1>Phonebook</h1>
-            <ContactAddForm
-              addContact={this.addContact}
-              deleteContact={this.deleteContact}
-            />
-            <ContactForm
-              contacts={contacts}
-              filter={filter}
-              onContactFilter={this.updateContactFilter}
-              onDeleteContact={this.deleteContact}
-            />
+          <h1>Phonebook</h1>
+          <ContactAddForm
+            addContact={this.addContact}
+            deleteContact={this.deleteContact}
+          />
+          <Title title="Contacts" />
+          <Filter onContactFilter={this.updateContactFilter} filter={filter} />
+          <ContactList
+            filter={filter}
+            contacts={contacts}
+            onDeleteContact={this.deleteContact}
+          />
         </Wrapper>
       </>
     );

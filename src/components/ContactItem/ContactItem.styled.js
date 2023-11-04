@@ -8,8 +8,6 @@ export const Contact = styled.li`
    &:not(:last-child) {
       margin-bottom: ${p => p.theme.spacing(5)};
    };
-
-  
 `;
 
 export const NameWrapp = styled.div`

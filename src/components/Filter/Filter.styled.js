@@ -1,8 +1,4 @@
-import styled from "styled-components";
-
-export const Title = styled.h2`
-  margin-bottom: ${p => p.theme.spacing(5)};
-`;
+import styled from 'styled-components';
 
 export const Label = styled.label`
   display: block;
@@ -17,11 +13,7 @@ export const Input = styled.input`
   margin: 0 auto;
   outline: none;
   padding: ${p => p.theme.spacing(2)};
-  margin-top: ${p=>p.theme.spacing(2)};
+  margin-top: ${p => p.theme.spacing(2)};
   border: 1px solid ${p => p.theme.colors.lightGrey};
   border-radius: ${p => p.theme.spacing(1)};
-`;
-
-export const Notify = styled.p`
-  text-align: center;
 `;
