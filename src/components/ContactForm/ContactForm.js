@@ -1,9 +1,8 @@
 import { ContactItem } from './ContactItem';
 import {
-  ContactList,
   Input,
   Label,
-  Section,
+  Notify,
   Title,
 } from './ContactsForm.styled';
 
@@ -19,7 +18,7 @@ export const ContactForm = ({
     return hasContact;
   });
   return (
-    <Section>
+    <div>
       <Title>Contacts</Title>
       <Label>
         Find contact by name:
@@ -31,16 +30,16 @@ export const ContactForm = ({
         />
       </Label>
 
-      <ContactList>
+      <ul>
         {filteredContacts.length > 0 ? (
           <ContactItem
             contacts={filteredContacts}
             onDeleteContact={onDeleteContact}
           />
         ) : (
-          <p>Your contatcs is empty. Please add contact to your list</p>
+          <Notify>Your contatcs is empty. Please add contact to your list</Notify>
         )}
-      </ContactList>
-    </Section>
+      </ul>
+    </div>
   );
 };

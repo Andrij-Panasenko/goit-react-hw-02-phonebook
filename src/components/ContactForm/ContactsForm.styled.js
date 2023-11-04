@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-export const Section = styled.div`
-
-`;
-
 export const Title = styled.h2`
   margin-bottom: ${p => p.theme.spacing(5)};
 `;
@@ -26,4 +22,6 @@ export const Input = styled.input`
   border-radius: ${p => p.theme.spacing(1)};
 `;
 
-export const ContactList = styled.ul``;
+export const Notify = styled.p`
+  text-align: center;
+`;
