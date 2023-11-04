@@ -22,7 +22,7 @@ export const ContactForm = ({
     <Section>
       <Title>Contacts</Title>
       <Label>
-        Find contact by name
+        Find contact by name:
         <Input
           type="text"
           placeholder="Name"

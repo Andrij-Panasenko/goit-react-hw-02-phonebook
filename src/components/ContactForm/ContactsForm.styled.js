@@ -21,6 +21,7 @@ export const Input = styled.input`
   margin: 0 auto;
   outline: none;
   padding: ${p => p.theme.spacing(2)};
+  margin-top: ${p=>p.theme.spacing(2)};
   border: 1px solid ${p => p.theme.colors.lightGrey};
   border-radius: ${p => p.theme.spacing(1)};
 `;
