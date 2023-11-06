@@ -1,13 +1,7 @@
 import { ContactItem } from '../ContactItem/ContactItem';
 import { Notify } from './ContactList.styled';
 
-export const ContactList = ({ contacts, filter, onDeleteContact }) => {
-  const filteredContacts = contacts.filter(item => {
-    const hasContact = item.name.toLowerCase().includes(filter.toLowerCase());
-
-    return hasContact;
-  });
-
+export const ContactList = ({ onDeleteContact, filteredContacts }) => {
   return (
     <div>
       <ul>

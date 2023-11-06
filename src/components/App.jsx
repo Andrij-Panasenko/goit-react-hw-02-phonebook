@@ -63,11 +63,18 @@ export class App extends Component {
 
   render() {
     const { contacts, filter } = this.state;
+      const filteredContacts = contacts.filter(item => {
+        const hasContact = item.name
+          .toLowerCase()
+          .includes(filter.toLowerCase());
+
+        return hasContact;
+      });
 
     return (
       <>
         <GlobalStyle />
-        <Wrapper className="temp-class">
+        <Wrapper>
           <h1>Phonebook</h1>
           <ContactAddForm
             addContact={this.addContact}
@@ -76,6 +83,7 @@ export class App extends Component {
           <Title title="Contacts" />
           <Filter onContactFilter={this.updateContactFilter} filter={filter} />
           <ContactList
+            filteredContacts={filteredContacts}
             filter={filter}
             contacts={contacts}
             onDeleteContact={this.deleteContact}
