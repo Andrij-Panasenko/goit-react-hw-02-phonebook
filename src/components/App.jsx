@@ -84,8 +84,6 @@ export class App extends Component {
           <Filter onContactFilter={this.updateContactFilter} filter={filter} />
           <ContactList
             filteredContacts={filteredContacts}
-            filter={filter}
-            contacts={contacts}
             onDeleteContact={this.deleteContact}
           />
         </Wrapper>
